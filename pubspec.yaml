@@ -1,0 +1,42 @@
+---
+name: bnkr_pro
+description: A new Flutter application.
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  get: ^4.1.4
+  get_storage: ^2.0.2
+  intl: ^0.17.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/images/
+  fonts:
+  - family: ElMessiri
+    fonts:
+    - asset: assets/fonts/ElMessiri-Regular.ttf
+      style: italic
+  - family: ElMessiri-Medium
+    fonts:
+    - asset: assets/fonts/ElMessiri-Medium.ttf
+      style: italic
+  - family: ElMessiri-Bold
+    fonts:
+    - asset: assets/fonts/ElMessiri-Bold.ttf
+      style: italic
+  - family: ElMessiri-SemiBold
+    fonts:
+    - asset: assets/fonts/ElMessiri-SemiBold.ttf
+      style: italic
+  - family: Bahnschrift
+    fonts:
+    - asset: assets/fonts/Bahnschrift.ttf
+      style: italic
