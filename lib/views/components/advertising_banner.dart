@@ -8,7 +8,7 @@ class AdvertisingBanner extends StatelessWidget {
       padding: EdgeInsets.only(top: Get.height * 0.02),
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: Get.width * 0.03),
-        height: Get.height * 0.10,
+        height: Get.height * 0.07,
         width: double.infinity,
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColorDark,
