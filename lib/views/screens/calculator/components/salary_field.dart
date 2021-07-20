@@ -24,7 +24,7 @@ class SalaryField extends GetView<CalculatorController> {
                 child: DefaultSlider(
                   title: 'الراتب',
                   value: controller.salary.toDouble(),
-                  min: 5000,
+                  min: 0,
                   max: 35000,
                   onChanged: (value){
                     controller.changeSalary(value);

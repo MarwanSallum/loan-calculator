@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.marwansallum.bnkr_pro">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="bnkr_pro"
         android:icon="@mipmap/ic_launcher">

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-class DefaultSlider extends StatelessWidget {
+class DefaultSlider extends GetResponsiveView {
   late String title;
   late double value;
   late double min;
@@ -18,7 +18,7 @@ class DefaultSlider extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget phone() {
     final formatter = NumberFormat("#,###.##");
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -30,11 +30,11 @@ class DefaultSlider extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Get.theme.textTheme.bodyText1,
               ),
               Text(
                 formatter.format(value),
-                style: Theme.of(context).textTheme.headline5,
+                style: Get.theme.textTheme.headline5,
               ),
             ],
           ),

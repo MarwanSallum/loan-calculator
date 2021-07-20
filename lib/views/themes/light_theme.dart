@@ -13,6 +13,8 @@ class LightTheme{
     textTheme: TextTheme(
       headline5: TextStyle(color: LightColor().thirdColor, fontFamily: numberFontFamily),
       bodyText1: TextStyle(color: LightColor().thirdColor, fontFamily: textFontFamily, fontSize: 18, fontWeight: FontWeight.bold),
+      bodyText2: TextStyle(color: LightColor().thirdColor, fontFamily: textFontFamily, fontSize: 18, fontWeight: FontWeight.bold),
+
     ),
 
     floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -21,6 +23,12 @@ class LightTheme{
 
     iconTheme: IconThemeData(
       color: LightColor().accentColor,
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(LightColor().accentColor),
+      ),
     ),
 
     sliderTheme: SliderThemeData(

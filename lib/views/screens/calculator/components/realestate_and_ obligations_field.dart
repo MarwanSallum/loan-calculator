@@ -10,7 +10,7 @@ class RealEstateAndObligationsField extends GetView<CalculatorController> {
       padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: Get.height * 0.01),
       child: Container(
         width: double.infinity,
-        height: Get.height * 0.48,
+        height: Get.height * 0.38,
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColorDark,
           borderRadius: BorderRadius.circular(30),
@@ -39,21 +39,12 @@ class RealEstateAndObligationsField extends GetView<CalculatorController> {
                   },
                 ),
                 DefaultSlider(
-                  title: 'الإلتزامات',
+                  title: 'الإلتزامات الشهرية',
                   value: controller.obligations.toDouble(),
                   min: 0,
-                  max: 180000,
+                  max: 5000,
                   onChanged: (value){
                     controller.changeObligations(value);
-                  },
-                ),
-                DefaultSlider(
-                  title: 'هامش الربح',
-                  value: controller.interestRate,
-                  min: 0.50,
-                  max: 6.99,
-                  onChanged: (value){
-                    controller.changeInterestRate(value);
                   },
                 ),
               ],

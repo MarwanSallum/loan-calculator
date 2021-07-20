@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-class AgeAndPeriodField extends GetView<CalculatorController> {
+class InterestAndPeriodField extends GetView<CalculatorController> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,28 +15,35 @@ class AgeAndPeriodField extends GetView<CalculatorController> {
           height: Get.height * 0.15,
           width: Get.width * 0.45,
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColorDark,
+            color: Get.theme.primaryColorDark,
             borderRadius: BorderRadius.circular(30),
           ),
           child: GetBuilder<CalculatorController>(
             builder: (_) => Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('العمر', style: Theme.of(context).textTheme.bodyText1,),
-                Text(controller.age.toString(), style: Theme.of(context).textTheme.headline5,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text('النسبة', style: Theme.of(context).textTheme.bodyText1,),
+                    Text(controller.interestRate.toStringAsFixed(2), style: Get.theme.textTheme.headline5,),
+                  ],
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     RoundIconButton(
                       onPressed: (){
-                        controller.increaseAge();
+                        controller.increaseInterestRate();
                       },
+                      onLongPress: (){},
                       icon: FontAwesomeIcons.plus,
                     ),
                     RoundIconButton(
                       onPressed: (){
-                        controller.decreaseAge();
+                        controller.decreaseInterestRate();
                       },
+                      onLongPress: (){},
                       icon: FontAwesomeIcons.minus,
                     ),
                   ],
@@ -54,10 +61,15 @@ class AgeAndPeriodField extends GetView<CalculatorController> {
           ),
           child: GetBuilder<CalculatorController>(
             builder: (_) => Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('المدة بالسنوات', style: Theme.of(context).textTheme.bodyText1,),
-                Text(controller.period.toString(), style: Theme.of(context).textTheme.headline5,),
+               Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                 children: [
+                   Text('المدة', style: Theme.of(context).textTheme.bodyText1,),
+                   Text(controller.period.toString(), style: Theme.of(context).textTheme.headline5,),
+                 ],
+               ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -65,10 +77,16 @@ class AgeAndPeriodField extends GetView<CalculatorController> {
                       onPressed: (){
                         controller.increasePeriod();
                       },
+                      onLongPress: (){
+                        controller.increasePeriod();
+                      },
                       icon: FontAwesomeIcons.plus,
                     ),
                     RoundIconButton(
                       onPressed: (){
+                        controller.decreasePeriod();
+                      },
+                      onLongPress: (){
                         controller.decreasePeriod();
                       },
                       icon: FontAwesomeIcons.minus,

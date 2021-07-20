@@ -1,13 +1,25 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 class CalculatorController extends GetxController{
-  int salary = 5000;
-  int age = 30;
-  int period = 5;
+  final formatter = NumberFormat("#,###.##");
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  int salary = 0;
+  int period = 20;
   int realEstateValue = 0;
-  int downPayment = 0;
+  double downPayment = 0;
   int obligations = 0;
-  double interestRate = 0.79;
+  double interestRate = 2.79;
+  double deductionRate = 0.65;
+  TextEditingController mobileController = TextEditingController();
+
+  @override
+  void onClose() {
+    mobileController.dispose();
+    super.onClose();
+  }
 
   changeSalary(double newValue){
     salary = newValue.round();
@@ -20,7 +32,7 @@ class CalculatorController extends GetxController{
   }
 
   changeDownPayment(double newValue){
-    downPayment = newValue.round();
+    downPayment = newValue;
     update();
   }
 
@@ -29,29 +41,81 @@ class CalculatorController extends GetxController{
     update();
   }
 
-  changeInterestRate(double newValue){
-    interestRate = newValue;
+  increaseInterestRate(){
+    if(interestRate < 6.99){
+      interestRate += 0.01;
+    }
     update();
   }
 
-
-  increaseAge(){
-    age++;
-    update();
-  }
-
-  decreaseAge(){
-    age--;
+  decreaseInterestRate(){
+    if(interestRate > 0.50){
+      interestRate -= 0.01;
+    }
     update();
   }
 
   increasePeriod(){
-    period++;
+    if(period < 25){
+      period++;
+    }
     update();
   }
 
   decreasePeriod(){
-    period--;
+    if(period > 1){
+      period--;
+    }
     update();
+  }
+
+  int totalAmountGivingToCustomer(){
+    return (realEstateValue - downPayment).round();
+  }
+
+  int installmentBeforeSupport(){
+    //TODO: check for obligations with installment to be max 65%
+    int totalAmountGiving = totalAmountGivingToCustomer();
+    double netLoanAmount = totalAmountGiving / ((period + 1) * (interestRate / 100));
+    return (netLoanAmount / (period * 12)).round();
+  }
+
+  int installmentAfterSupport(){
+    //TODO: check for obligations with installment to be max 65%
+    int total = totalAmountGivingToCustomer();
+    int supportValue = 500000;
+    if(total > supportValue){
+      double loanAmount = ((total - supportValue) / ((period + 1) * (interestRate / 100))) / (period * 12);
+      double supportAmount = supportValue / (period * 12);
+      return (loanAmount + supportAmount).round();
+    }
+    supportValue = total;
+    return (supportValue / (period * 12)).round();
+
+  }
+
+  int loanProfitability(){
+    int total = totalAmountGivingToCustomer();
+    double netLoanProfit = (realEstateValue * (period + 1) * (interestRate / 100));
+    return (total + netLoanProfit).round();
+  }
+
+
+ sendResultToCustomer() async{
+    var link = WhatsAppUnilink(
+      phoneNumber: "+966${mobileController.text}",
+      text:   "*حاسبة تمويل مبدئية*\n"
+          "\n"
+          "*المبلغ المعطى للعميل* : ${totalAmountGivingToCustomer()} \n"
+          "*القسط* : ${installmentBeforeSupport()} \n"
+          "*القسط بعد الدعم* : ${installmentAfterSupport()} \n"
+          "*هامش الربح* : ${interestRate.toString()} \n"
+          "*المدة بالسنوات* : ${period.toString()} \n"
+          "*صافي التمويل* : ${loanProfitability()} \n"
+          "\n"
+          "_الإحتساب أعلاه هو إحتساب مبدئي كما أن التفاصيل النهائية يتم تحديدها عند إستكمال الطلب ورفعها إلى الإدارة المعنية_",
+    );
+
+    await launch("$link");
   }
 }
