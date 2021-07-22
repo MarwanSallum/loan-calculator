@@ -29,6 +29,11 @@ class DarkTheme {
           fontFamily: textFontFamily,
           fontSize: 18,
           fontWeight: FontWeight.bold),
+      headline4: TextStyle(
+          color: DarkColor().accentColor,
+          fontFamily: textFontFamily,
+          fontSize: 16,
+          fontWeight: FontWeight.bold),
     ),
 
 

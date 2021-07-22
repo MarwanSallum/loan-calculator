@@ -21,8 +21,8 @@ class ResultRow extends GetView<CalculatorController> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title, style: Theme.of(context).textTheme.headline6,),
-          value == controller.interestRate
-            ? Text(value.toStringAsFixed(2), style: Theme.of(context).textTheme.headline5,)
+          value == 0
+            ? Text('القسط يتجاوز 65%', style: Theme.of(context).textTheme.headline4,)
             : Text(formatter.format(value), style: Theme.of(context).textTheme.headline5,),
         ],
       ),

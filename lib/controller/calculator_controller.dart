@@ -74,24 +74,37 @@ class CalculatorController extends GetxController{
   }
 
   int installmentBeforeSupport(){
-    //TODO: check for obligations with installment to be max 65%
-    int totalAmountGiving = totalAmountGivingToCustomer();
-    double netLoanAmount = totalAmountGiving / ((period + 1) * (interestRate / 100));
-    return (netLoanAmount / (period * 12)).round();
+    if( ( (salary * deductionRate) - obligations ) > loanIstallment() ){
+      return loanIstallment().round();
+    }else{
+      return 0;
+    }
   }
 
   int installmentAfterSupport(){
-    //TODO: check for obligations with installment to be max 65%
     int total = totalAmountGivingToCustomer();
     int supportValue = 500000;
-    if(total > supportValue){
-      double loanAmount = ((total - supportValue) / ((period + 1) * (interestRate / 100))) / (period * 12);
-      double supportAmount = supportValue / (period * 12);
-      return (loanAmount + supportAmount).round();
+    if( ( (salary * deductionRate) - obligations ) > loanIstallment() ){
+      if(total > supportValue){
+        double loanAmount = ((total - supportValue) / ((period + 1) * (interestRate / 100))) / (period * 12);
+        double supportAmount = supportValue / (period * 12);
+        return (loanAmount + supportAmount).round();
+      }else if(period > 5) {
+        supportValue = total;
+        return (supportValue / (period * 12)).round();
+      }else{
+        return 0;
+      }
+    }else{
+      return 0;
     }
-    supportValue = total;
-    return (supportValue / (period * 12)).round();
 
+
+  }
+
+  double loanIstallment(){
+    int total = loanProfitability();
+    return total / (period * 12);
   }
 
   int loanProfitability(){

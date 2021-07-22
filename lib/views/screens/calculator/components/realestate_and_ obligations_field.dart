@@ -21,7 +21,7 @@ class RealEstateAndObligationsField extends GetView<CalculatorController> {
             builder: (_) => Column(
               children: [
                 DefaultSlider(
-                  title: 'قيمة العقار',
+                  title: 'مبلغ التمويل المطلوب',
                   value: controller.realEstateValue.toDouble(),
                   min: 0,
                   max: 2000000,

@@ -19,12 +19,12 @@ class CalculatorScreen extends GetView {
       child: Scaffold(
         body: Column(
           children: [
-            AdvertisingBanner(),
+            // AdvertisingBanner(),
             SalaryField(),
             InterestAndPeriodField(),
             RealEstateAndObligationsField(),
             DefaultButton(title: 'إحسب', onPressed: (){
-              Get.find<AdmobController>().showInterstitialAd();
+              // Get.find<AdmobController>().showInterstitialAd();
               Get.offAll(() => ResultScreen());
             }),
           ],

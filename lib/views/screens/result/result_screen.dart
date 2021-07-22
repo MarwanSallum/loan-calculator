@@ -15,7 +15,7 @@ class ResultScreen extends GetView{
       child: Scaffold(
         body: Column(
           children: [
-            AdvertisingBanner(),
+            // AdvertisingBanner(),
             ResultBody(),
             DefaultButton(title: 'أعد الإحتساب', onPressed: (){ Get.offAll(() => CalculatorScreen()); }),
             DefaultButton(

@@ -6,6 +6,16 @@ class AdmobService {
   InterstitialAd? interstitialAd;
   int numOfAttemptLoad = 0;
 
+  static String get bannerAdUnitId{
+    if(Platform.isAndroid){
+      return "ca-app-pub-1901979966922712/3771983920";
+    }else if (Platform.isIOS){
+      return "";
+    }else{
+      throw UnsupportedError('Unsupported platform');
+    }
+  }
+
   static initialize() {
     if (MobileAds.instance == null) {
       MobileAds.instance.initialize();

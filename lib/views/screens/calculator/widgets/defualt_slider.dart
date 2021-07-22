@@ -19,7 +19,7 @@ class DefaultSlider extends GetResponsiveView {
 
   @override
   Widget phone() {
-    final formatter = NumberFormat("#,###.##");
+    final formatter = NumberFormat("#,###");
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
