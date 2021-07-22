@@ -1,10 +1,13 @@
+import 'package:bnkr_pro/services/admob_service.dart';
 import 'package:bnkr_pro/views/pages/all_pages.dart';
 import 'package:bnkr_pro/views/themes/dark_theme.dart';
 import 'package:bnkr_pro/views/themes/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  AdmobService.initialize();
   runApp(MyApp());
 }
 

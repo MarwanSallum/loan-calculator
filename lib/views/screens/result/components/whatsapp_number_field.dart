@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 class WhatsappNumberField extends GetView<CalculatorController> {
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(()=>CalculatorController());
     return Container(
       height: Get.height * 0.60,
       decoration: BoxDecoration(

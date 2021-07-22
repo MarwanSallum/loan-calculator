@@ -23,13 +23,10 @@ class ResultBody extends GetView<CalculatorController> {
               children: [
                 ResultRow(title: 'المبلغ المعطى للعميل', value: controller.totalAmountGivingToCustomer()),
                 ResultRow(title: 'القسط', value: controller.installmentBeforeSupport()),
-                controller.period >= 5
-                    ? ResultRow(title: 'القسط بعد الدعم', value: controller.installmentAfterSupport())
-                    : // nothing
+                ResultRow(title: 'القسط بعد الدعم', value: controller.installmentAfterSupport()),
                 ResultRow(title: 'هامش الربح', value: controller.interestRate.round()),
                 ResultRow(title: 'المدة بالسنوات', value: controller.period.round()),
                 ResultRow(title: 'صافي التمويل', value: controller.loanProfitability()),
-
               ],
             ),
           ),
@@ -38,3 +35,4 @@ class ResultBody extends GetView<CalculatorController> {
     );
   }
 }
+// 0567256800
