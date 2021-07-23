@@ -6,11 +6,10 @@ import 'package:bnkr_pro/views/screens/calculator/components/realestate_and_%20o
 import 'package:bnkr_pro/views/screens/calculator/components/salary_field.dart';
 import 'package:bnkr_pro/views/screens/calculator/components/interest_and_period_field.dart';
 import 'package:bnkr_pro/views/screens/result/result_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CalculatorScreen extends GetView {
+class CalculatorScreen extends GetView<CalculatorController> {
   @override
   Widget build(BuildContext context) {
     Get.put(CalculatorController());
@@ -18,14 +17,16 @@ class CalculatorScreen extends GetView {
     return SafeArea(
       child: Scaffold(
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // AdvertisingBanner(),
+            AdvertisingBanner(),
             SalaryField(),
             InterestAndPeriodField(),
             RealEstateAndObligationsField(),
             DefaultButton(title: 'إحسب', onPressed: (){
-              // Get.find<AdmobController>().showInterstitialAd();
-              Get.offAll(() => ResultScreen());
+              Get.find<AdmobController>().showInterstitialAd();
+              Get.to(() => ResultScreen());
+              Get.delete<AdmobController>();
             }),
           ],
         ),

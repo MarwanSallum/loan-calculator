@@ -14,10 +14,14 @@ class ResultScreen extends GetView{
     return SafeArea(
       child: Scaffold(
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // AdvertisingBanner(),
+            AdvertisingBanner(),
             ResultBody(),
-            DefaultButton(title: 'أعد الإحتساب', onPressed: (){ Get.offAll(() => CalculatorScreen()); }),
+            DefaultButton(title: 'أعد الإحتساب', onPressed: (){
+              Get.back();
+              Get.put(AdmobController());
+            },),
             DefaultButton(
                 title: 'مشاركة عبر الواتساب',
                 color: MaterialStateProperty.all(Colors.green),

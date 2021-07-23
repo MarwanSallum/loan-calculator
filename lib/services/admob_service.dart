@@ -16,6 +16,16 @@ class AdmobService {
     }
   }
 
+  static String get interstitialAdUnitId{
+    if(Platform.isAndroid){
+      return "ca-app-pub-1901979966922712/2074214286";
+    }else if (Platform.isIOS){
+      return "";
+    }else{
+      throw UnsupportedError('Unsupported platform');
+    }
+  }
+
   static initialize() {
     if (MobileAds.instance == null) {
       MobileAds.instance.initialize();
@@ -24,7 +34,7 @@ class AdmobService {
 
   static BannerAd createBannerAd() {
     BannerAd ad = BannerAd(
-      size: AdSize.fullBanner,
+      size: AdSize.largeBanner,
       adUnitId: BannerAd.testAdUnitId,
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) => print('ad is loaded'),

@@ -2,7 +2,7 @@
     package="com.marwansallum.bnkr_pro">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="bnkr_pro"
+        android:label="Bnkr Pro"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
