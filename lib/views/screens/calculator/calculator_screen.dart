@@ -19,15 +19,19 @@ class CalculatorScreen extends GetView<CalculatorController> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            AdvertisingBanner(),
-            SalaryField(),
-            InterestAndPeriodField(),
-            RealEstateAndObligationsField(),
-            DefaultButton(title: 'إحسب', onPressed: (){
-              Get.find<AdmobController>().showInterstitialAd();
-              Get.to(() => ResultScreen());
-              Get.delete<AdmobController>();
-            }),
+            Expanded(child: AdvertisingBanner()),
+            Expanded(flex: 2, child: SalaryField()),
+            Expanded(flex: 2, child: InterestAndPeriodField()),
+            Expanded(flex: 4, child: RealEstateAndObligationsField()),
+            Expanded(
+              child: DefaultButton(
+                  title: 'إحسب',
+                  onPressed: () {
+                    Get.find<AdmobController>().showInterstitialAd();
+                    Get.to(() => ResultScreen());
+                    Get.delete<AdmobController>();
+                  }),
+            ),
           ],
         ),
       ),

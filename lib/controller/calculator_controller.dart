@@ -26,8 +26,28 @@ class CalculatorController extends GetxController{
     update();
   }
 
+  increaseSalary(){
+    salary++;
+    update();
+  }
+
+  decreaseSalary(){
+    salary--;
+    update();
+  }
+
   changeRealEstate(double newValue){
     realEstateValue = newValue.round();
+    update();
+  }
+
+  increaseRealEstate(){
+    realEstateValue++;
+    update();
+  }
+
+  decreaseRealEstate(){
+    realEstateValue--;
     update();
   }
 
@@ -36,8 +56,28 @@ class CalculatorController extends GetxController{
     update();
   }
 
+  increarseDownPayment(){
+    downPayment++;
+    update();
+  }
+
+  decreaseDownPayment(){
+    downPayment--;
+    update();
+  }
+
   changeObligations(double newValue){
     obligations = newValue.round();
+    update();
+  }
+
+  increaseObligations(){
+    obligations++;
+    update();
+  }
+
+  decreaseObligations(){
+    obligations--;
     update();
   }
 

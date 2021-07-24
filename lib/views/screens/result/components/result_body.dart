@@ -21,12 +21,12 @@ class ResultBody extends GetView<CalculatorController> {
             builder: (_) => Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ResultRow(title: 'المبلغ المعطى للعميل', value: controller.totalAmountGivingToCustomer()),
-                ResultRow(title: 'القسط', value: controller.installmentBeforeSupport()),
-                ResultRow(title: 'القسط بعد الدعم', value: controller.installmentAfterSupport()),
-                ResultRow(title: 'هامش الربح', value: controller.interestRate.round()),
-                ResultRow(title: 'المدة بالسنوات', value: controller.period.round()),
-                ResultRow(title: 'صافي التمويل', value: controller.loanProfitability()),
+                Expanded(child: ResultRow(title: 'المبلغ المعطى للعميل', value: controller.totalAmountGivingToCustomer().toDouble())),
+                Expanded(child: ResultRow(title: 'القسط', value: controller.installmentBeforeSupport().toDouble())),
+                Expanded(child: ResultRow(title: 'القسط بعد الدعم', value: controller.installmentAfterSupport().toDouble())),
+                Expanded(child: ResultRow(title: 'هامش الربح', value: controller.interestRate.toDouble())),
+                Expanded(child: ResultRow(title: 'المدة بالسنوات', value: controller.period.toDouble())),
+                Expanded(child: ResultRow(title: 'صافي التمويل', value: controller.loanProfitability().toDouble())),
               ],
             ),
           ),

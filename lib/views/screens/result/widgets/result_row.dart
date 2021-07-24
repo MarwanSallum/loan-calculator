@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 
 class ResultRow extends GetView<CalculatorController> {
   late String title;
-  late int value;
+  late double value;
 
   ResultRow({
     required this.title,
@@ -14,7 +14,7 @@ class ResultRow extends GetView<CalculatorController> {
 
   @override
   Widget build(BuildContext context) {
-    final formatter = NumberFormat("#,###");
+    final formatter = NumberFormat("#,###.##");
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05),
       child: Row(

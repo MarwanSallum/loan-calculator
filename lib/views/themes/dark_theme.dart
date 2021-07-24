@@ -13,27 +13,32 @@ class DarkTheme {
       headline5: TextStyle(
         color: DarkColor().accentColor,
         fontFamily: numberFontFamily,
+        fontSize: Get.width * 0.06,
       ),
       bodyText1: TextStyle(
           color: DarkColor().accentColor,
           fontFamily: textFontFamily,
-          fontSize: 18,
-          fontWeight: FontWeight.bold),
+          fontSize: Get.width * 0.04,
+          fontWeight: FontWeight.bold,
+      ),
       bodyText2: TextStyle(
           color: DarkColor().primaryColor,
           fontFamily: textFontFamily,
-          fontSize: 18,
-          fontWeight: FontWeight.bold),
+          fontSize: Get.width * 0.04,
+          fontWeight: FontWeight.bold,
+      ),
       headline6: TextStyle(
           color: DarkColor().thirdColor,
           fontFamily: textFontFamily,
-          fontSize: 18,
-          fontWeight: FontWeight.bold),
+          fontSize: Get.width * 0.04,
+          fontWeight: FontWeight.bold,
+      ),
       headline4: TextStyle(
           color: DarkColor().accentColor,
           fontFamily: textFontFamily,
           fontSize: 16,
-          fontWeight: FontWeight.bold),
+          fontWeight: FontWeight.bold,
+      ),
     ),
 
 
@@ -67,8 +72,8 @@ class DarkTheme {
       activeTrackColor: DarkColor().accentColor,
       thumbColor: DarkColor().accentColor,
       overlayColor: DarkColor().accentColor.withOpacity(0.40),
-      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
-      overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0),
+      thumbShape: RoundSliderThumbShape(enabledThumbRadius: Get.width * 0.02),
+      overlayShape: RoundSliderOverlayShape(overlayRadius: Get.width * 0.03),
     ),
   );
 }

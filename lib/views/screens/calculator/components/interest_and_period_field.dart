@@ -33,17 +33,23 @@ class InterestAndPeriodField extends GetView<CalculatorController> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     RoundIconButton(
+                      width: Get.width * 0.10,
+                      height: Get.height * 0.05,
+                      fillColor: Color(0xFF4C4F5E),
+                      iconColor: Theme.of(context).iconTheme.color!,
                       onPressed: (){
                         controller.increaseInterestRate();
                       },
-                      onLongPress: (){},
                       icon: FontAwesomeIcons.plus,
                     ),
                     RoundIconButton(
+                      width: Get.width * 0.10,
+                      height: Get.height * 0.05,
+                      fillColor: Color(0xFF4C4F5E),
+                      iconColor: Theme.of(context).iconTheme.color!,
                       onPressed: (){
                         controller.decreaseInterestRate();
                       },
-                      onLongPress: (){},
                       icon: FontAwesomeIcons.minus,
                     ),
                   ],
@@ -74,19 +80,21 @@ class InterestAndPeriodField extends GetView<CalculatorController> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     RoundIconButton(
+                      width: Get.width * 0.10,
+                      height: Get.height * 0.05,
+                      fillColor: Color(0xFF4C4F5E),
+                      iconColor: Theme.of(context).iconTheme.color!,
                       onPressed: (){
-                        controller.increasePeriod();
-                      },
-                      onLongPress: (){
                         controller.increasePeriod();
                       },
                       icon: FontAwesomeIcons.plus,
                     ),
                     RoundIconButton(
+                      width: Get.width * 0.10,
+                      height: Get.height * 0.05,
+                      fillColor: Color(0xFF4C4F5E),
+                      iconColor: Theme.of(context).iconTheme.color!,
                       onPressed: (){
-                        controller.decreasePeriod();
-                      },
-                      onLongPress: (){
                         controller.decreasePeriod();
                       },
                       icon: FontAwesomeIcons.minus,

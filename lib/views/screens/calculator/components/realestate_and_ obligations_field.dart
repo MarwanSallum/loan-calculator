@@ -20,32 +20,59 @@ class RealEstateAndObligationsField extends GetView<CalculatorController> {
           child: GetBuilder<CalculatorController>(
             builder: (_) => Column(
               children: [
-                DefaultSlider(
-                  title: 'مبلغ التمويل المطلوب',
-                  value: controller.realEstateValue.toDouble(),
-                  min: 0,
-                  max: 2000000,
-                  onChanged: (value){
-                    controller.changeRealEstate(value);
-                  },
+                Expanded(
+                  flex: 1,
+                  child: DefaultSlider(
+                    title: 'مبلغ التمويل المطلوب',
+                    value: controller.realEstateValue.toDouble(),
+                    min: 0,
+                    max: 2000000,
+                    onChanged: (value){
+                      controller.changeRealEstate(value);
+                    },
+                    increase: (){
+                      controller.increaseRealEstate();
+                    },
+                    decrease: (){
+                      controller.decreaseRealEstate();
+                    },
+                  ),
                 ),
-                DefaultSlider(
-                  title: 'الدفعه المقدمة',
-                  value: controller.downPayment.toDouble(),
-                  min: 0,
-                  max: 500000,
-                  onChanged: (value){
-                    controller.changeDownPayment(value);
-                  },
+                Expanded(
+                  flex: 1,
+                  child: DefaultSlider(
+                    title: 'الدفعه المقدمة',
+                    value: controller.downPayment.toDouble(),
+                    min: 0,
+                    max: 500000,
+                    onChanged: (value){
+                      controller.changeDownPayment(value);
+                    },
+                    increase: (){
+                      controller.increarseDownPayment();
+                    },
+                    decrease: (){
+                      controller.decreaseDownPayment();
+                    },
+                  ),
                 ),
-                DefaultSlider(
-                  title: 'الإلتزامات الشهرية',
-                  value: controller.obligations.toDouble(),
-                  min: 0,
-                  max: 5000,
-                  onChanged: (value){
-                    controller.changeObligations(value);
-                  },
+                Expanded(
+                  flex: 1,
+                  child: DefaultSlider(
+                    title: 'الإلتزامات الشهرية',
+                    value: controller.obligations.toDouble(),
+                    min: 0,
+                    max: 5000,
+                    onChanged: (value){
+                      controller.changeObligations(value);
+                    },
+                    increase: (){
+                      controller.increaseObligations();
+                    },
+                    decrease: (){
+                      controller.decreaseObligations();
+                    },
+                  ),
                 ),
               ],
             ),

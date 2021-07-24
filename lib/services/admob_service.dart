@@ -8,9 +8,9 @@ class AdmobService {
 
   static String get bannerAdUnitId{
     if(Platform.isAndroid){
-      return "ca-app-pub-1901979966922712/3771983920";
+      return "ca-app-pub-1901979966922712/7346189438";
     }else if (Platform.isIOS){
-      return "";
+      return "ca-app-pub-1901979966922712/7346189438";
     }else{
       throw UnsupportedError('Unsupported platform');
     }
@@ -18,9 +18,9 @@ class AdmobService {
 
   static String get interstitialAdUnitId{
     if(Platform.isAndroid){
-      return "ca-app-pub-1901979966922712/2074214286";
+      return "ca-app-pub-1901979966922712/8467699415";
     }else if (Platform.isIOS){
-      return "";
+      return "ca-app-pub-1901979966922712/8467699415";
     }else{
       throw UnsupportedError('Unsupported platform');
     }
