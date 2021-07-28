@@ -3,7 +3,7 @@ import 'package:bnkr_pro/views/screens/calculator/widgets/defualt_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class RealEstateAndObligationsField extends GetView<CalculatorController> {
+class LoanAmountAndObligationsField extends GetView<CalculatorController> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,17 +24,27 @@ class RealEstateAndObligationsField extends GetView<CalculatorController> {
                   flex: 1,
                   child: DefaultSlider(
                     title: 'مبلغ التمويل المطلوب',
-                    value: controller.realEstateValue.toDouble(),
+                    value: controller.loanAmountRequest.toDouble(),
                     min: 0,
                     max: 2000000,
-                    onChanged: (value){
-                      controller.changeRealEstate(value);
-                    },
+                    onChanged: (value){},
                     increase: (){
-                      controller.increaseRealEstate();
+                      controller.increaseLoanAmountRequest();
+                    },
+                    longIncrease: (){
+                      controller.longIncreaseLoanAmountRequest();
+                    },
+                    longIncreaseUp: (){
+                      controller.longPressedUp();
                     },
                     decrease: (){
-                      controller.decreaseRealEstate();
+                      controller.decreaseLoanAmountRequest();
+                    },
+                    longDecrease: (){
+                      controller.longDecreaseLoanAmountRequest();
+                    },
+                    longDecreaseUp: (){
+                      controller.longPressedUp();
                     },
                   ),
                 ),
@@ -45,14 +55,24 @@ class RealEstateAndObligationsField extends GetView<CalculatorController> {
                     value: controller.downPayment.toDouble(),
                     min: 0,
                     max: 500000,
-                    onChanged: (value){
-                      controller.changeDownPayment(value);
-                    },
+                    onChanged: (value){},
                     increase: (){
-                      controller.increarseDownPayment();
+                      controller.increaseDownPayment();
+                    },
+                    longIncrease: (){
+                      controller.longIncreaseDownPayment();
+                    },
+                    longIncreaseUp: (){
+                      controller.longPressedUp();
                     },
                     decrease: (){
                       controller.decreaseDownPayment();
+                    },
+                    longDecrease: (){
+                      controller.longDecreaseDownPayment();
+                    },
+                    longDecreaseUp: (){
+                      controller.longPressedUp();
                     },
                   ),
                 ),
@@ -69,8 +89,20 @@ class RealEstateAndObligationsField extends GetView<CalculatorController> {
                     increase: (){
                       controller.increaseObligations();
                     },
+                    longIncrease: (){
+                      controller.longIncreaseObligations();
+                    },
+                    longIncreaseUp: (){
+                      controller.longPressedUp();
+                    },
                     decrease: (){
                       controller.decreaseObligations();
+                    },
+                    longDecrease: (){
+                      controller.longDecreaseObligations();
+                    },
+                    longDecreaseUp: (){
+                      controller.longPressedUp();
                     },
                   ),
                 ),

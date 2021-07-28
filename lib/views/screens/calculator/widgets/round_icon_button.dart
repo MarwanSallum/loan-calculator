@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 class RoundIconButton extends GetResponsiveView {
   late IconData icon;
   late Function onPressed;
+  late Function onLongPress;
+  late Function onLongPressUp;
   late double width;
   late double height;
   late Color fillColor;
@@ -13,6 +15,8 @@ class RoundIconButton extends GetResponsiveView {
   RoundIconButton({
     required this.icon,
     required this.onPressed,
+    required this.onLongPress,
+    required this.onLongPressUp,
     required this.width,
     required this.height,
     required this.fillColor,
@@ -21,16 +25,19 @@ class RoundIconButton extends GetResponsiveView {
 
   @override
   Widget phone() {
-    return RawMaterialButton(
-      elevation: 0.0,
-      child: Icon(icon, color: iconColor, size: Get.width * 0.07,),
-      onPressed: onPressed as void Function(),
-      constraints: BoxConstraints.tightFor(
+    return GestureDetector(
+      child: Container(
         width: width,
-        height: height,
+          height: height,
+          decoration: BoxDecoration(
+            color: fillColor,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Icon(icon, color: iconColor, size: Get.width * 0.07,),
       ),
-      shape: CircleBorder(),
-      fillColor: fillColor,
+      onTap: onPressed as void Function(),
+      onLongPress: onLongPress as void Function(),
+      onLongPressUp: onLongPressUp as void Function(),
     );
   }
 }

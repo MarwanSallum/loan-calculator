@@ -2,7 +2,6 @@ import 'package:bnkr_pro/controller/calculator_controller.dart';
 import 'package:bnkr_pro/views/screens/calculator/widgets/defualt_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 class SalaryField extends GetView<CalculatorController> {
   @override
@@ -30,8 +29,20 @@ class SalaryField extends GetView<CalculatorController> {
               increase: (){
                 controller.increaseSalary();
               },
+              longIncrease: (){
+                controller.longIncreaseSalary();
+              },
+              longIncreaseUp: (){
+                controller.longPressedUp();
+              },
               decrease: (){
                 controller.decreaseSalary();
+              },
+              longDecrease: (){
+                controller.longDecreaseSalary();
+              },
+              longDecreaseUp: (){
+                controller.longPressedUp();
               },
             ),
           ),

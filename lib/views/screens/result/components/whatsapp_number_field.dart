@@ -8,6 +8,7 @@ class WhatsappNumberField extends GetView<CalculatorController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(()=>CalculatorController());
+    FocusScopeNode currentFocus = FocusScope.of(context);
     return Container(
       height: Get.height * 0.60,
       decoration: BoxDecoration(

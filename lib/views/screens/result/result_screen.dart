@@ -6,36 +6,29 @@ import 'package:bnkr_pro/views/screens/result/components/whatsapp_number_field.d
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ResultScreen extends GetView {
+class ResultScreen extends GetView{
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Expanded(child: AdvertisingBanner()),
-          Expanded(flex: 5, child: ResultBody()),
-          Expanded(
-            child: DefaultButton(
-              title: 'أعد الإحتساب',
-              onPressed: () {
-                Get.back();
-                Get.put(AdmobController());
-              },
+        body: Column(
+          children: [
+            AdvertisingBanner(),
+            ResultBody(),
+            DefaultButton(title: 'أعد الإحتساب', onPressed: (){
+              Get.back();
+              Get.put(AdmobController());
+            }),
+            DefaultButton(
+                title: 'مشاركة عبر الواتساب',
+                color: MaterialStateProperty.all(Colors.green),
+                onPressed: (){
+                  Get.bottomSheet(WhatsappNumberField());
+                },
             ),
-          ),
-          Expanded(
-            child: DefaultButton(
-              title: 'مشاركة عبر الواتساب',
-              color: MaterialStateProperty.all(Colors.green),
-              onPressed: () {
-                Get.bottomSheet(WhatsappNumberField());
-              },
-            ),
-          ),
-        ],
-      )),
+          ],
+        )
+      ),
     );
   }
 }

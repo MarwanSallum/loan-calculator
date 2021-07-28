@@ -6,9 +6,12 @@ import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 class CalculatorController extends GetxController{
   final formatter = NumberFormat("#,###.##");
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  bool isLongPressed = false;
+
   int salary = 0;
   int period = 20;
-  int realEstateValue = 0;
+  int loanAmountRequest = 0;
   double downPayment = 0;
   int obligations = 0;
   double interestRate = 2.79;
@@ -27,28 +30,79 @@ class CalculatorController extends GetxController{
   }
 
   increaseSalary(){
-    salary++;
-    update();
+    if(salary < 35000) {
+      salary++;
+      update();
+    }
+  }
+
+  longIncreaseSalary() async{
+    if(salary < 34800){
+      do{
+        isLongPressed = true;
+        salary += 50;
+        update();
+        await Future.delayed(Duration(milliseconds: 200));
+      } while (salary < 34900 && isLongPressed == true);
+    }else{
+      isLongPressed = false;
+    }
   }
 
   decreaseSalary(){
-    salary--;
-    update();
+    if(salary > 0) {
+      salary--;
+      update();
+    }
   }
 
-  changeRealEstate(double newValue){
-    realEstateValue = newValue.round();
-    update();
+  longDecreaseSalary() async{
+    if(salary > 100){
+      do{
+        isLongPressed = true;
+        salary -= 50;
+        update();
+        await Future.delayed(Duration(milliseconds: 200));
+      } while (salary > 100 && isLongPressed == true);
+    }else{
+      isLongPressed = false;
+    }
   }
 
-  increaseRealEstate(){
-    realEstateValue++;
-    update();
+  increaseLoanAmountRequest(){
+    if(loanAmountRequest < 2000000){
+      loanAmountRequest += 5000;
+      update();
+    }
   }
 
-  decreaseRealEstate(){
-    realEstateValue--;
-    update();
+  longIncreaseLoanAmountRequest() async{
+    if(loanAmountRequest < 1999900){
+      do{
+        isLongPressed = true;
+        loanAmountRequest += 5000;
+        update();
+        await Future.delayed(Duration(milliseconds: 10));
+      }while(loanAmountRequest < 1999900 && isLongPressed == true );
+    }
+  }
+
+  decreaseLoanAmountRequest(){
+    if(loanAmountRequest > 0){
+      loanAmountRequest -= 5000;
+      update();
+    }
+  }
+
+  longDecreaseLoanAmountRequest() async{
+    if(loanAmountRequest > 0){
+      do{
+        isLongPressed = true;
+        loanAmountRequest -= 5000;
+        update();
+        await Future.delayed(Duration(milliseconds: 10));
+      }while(loanAmountRequest > 0 && isLongPressed == true );
+    }
   }
 
   changeDownPayment(double newValue){
@@ -56,14 +110,40 @@ class CalculatorController extends GetxController{
     update();
   }
 
-  increarseDownPayment(){
-    downPayment++;
-    update();
+  increaseDownPayment(){
+    if(downPayment < 500000){
+      downPayment += 5000;
+      update();
+    }
+  }
+
+  longIncreaseDownPayment() async{
+    if(downPayment < 495000){
+      do{
+        isLongPressed = true;
+        downPayment += 5000;
+        update();
+        await Future.delayed(Duration(milliseconds: 10));
+      }while(downPayment < 495000 && isLongPressed == true );
+    }
   }
 
   decreaseDownPayment(){
-    downPayment--;
-    update();
+    if(downPayment > 0){
+      downPayment -= 5000;
+      update();
+    }
+  }
+
+  longDecreaseDownPayment() async{
+    if(downPayment > 0){
+      do{
+        isLongPressed = true;
+        downPayment -= 5000;
+        update();
+        await Future.delayed(Duration(milliseconds: 10));
+      }while(downPayment > 0 && isLongPressed == true );
+    }
   }
 
   changeObligations(double newValue){
@@ -72,27 +152,75 @@ class CalculatorController extends GetxController{
   }
 
   increaseObligations(){
-    obligations++;
-    update();
+    if(obligations < 4800){
+      obligations++;
+      update();
+    }
+  }
+
+  longIncreaseObligations() async{
+    if(obligations < 4800){
+      do{
+        isLongPressed = true;
+        obligations += 50;
+        update();
+        await Future.delayed(Duration(milliseconds: 50));
+      }while(obligations < 4800 && isLongPressed == true );
+    }
   }
 
   decreaseObligations(){
-    obligations--;
-    update();
+    if(obligations > 0){
+      obligations--;
+      update();
+    }
+  }
+
+  longDecreaseObligations() async{
+    if(obligations > 100){
+      do{
+        isLongPressed = true;
+        obligations -= 50;
+        update();
+        await Future.delayed(Duration(milliseconds: 50));
+      }while(obligations > 100 && isLongPressed == true );
+    }
   }
 
   increaseInterestRate(){
-    if(interestRate < 6.99){
+    if(interestRate < 8.99){
       interestRate += 0.01;
     }
     update();
   }
 
+  longIncreaseInterestRate() async{
+    if(interestRate < 8.79){
+      do{
+        isLongPressed = true;
+        interestRate += 0.05;
+        update();
+        await Future.delayed(Duration(milliseconds: 50));
+      }while(interestRate < 8.79 && isLongPressed == true);
+    }
+  }
+
   decreaseInterestRate(){
-    if(interestRate > 0.50){
+    if(interestRate > 0.10){
       interestRate -= 0.01;
     }
     update();
+  }
+
+  longDecreaseInterestRate() async{
+    if(interestRate > 0.10){
+      do{
+        isLongPressed = true;
+        interestRate -= 0.05;
+        update();
+        await Future.delayed(Duration(milliseconds: 50));
+      }while(interestRate > 0.20 && isLongPressed == true);
+    }
   }
 
   increasePeriod(){
@@ -102,6 +230,17 @@ class CalculatorController extends GetxController{
     update();
   }
 
+  longIncreasePeriod() async{
+    if(period < 25){
+      do{
+        isLongPressed = true;
+        period += 2;
+        update();
+        await Future.delayed(Duration(milliseconds: 50));
+      }while(period < 23 && isLongPressed == true);
+    }
+  }
+
   decreasePeriod(){
     if(period > 1){
       period--;
@@ -109,8 +248,24 @@ class CalculatorController extends GetxController{
     update();
   }
 
+  longDecreasePeriod() async{
+    if(period > 3){
+      do{
+        isLongPressed = true;
+        period -= 2;
+        update();
+        await Future.delayed(Duration(milliseconds: 50));
+      }while(period > 3 && isLongPressed == true);
+    }
+  }
+
+  longPressedUp(){
+    isLongPressed = false;
+    update();
+  }
+
   int totalAmountGivingToCustomer(){
-    return (realEstateValue - downPayment).round();
+    return (loanAmountRequest - downPayment).round();
   }
 
   int installmentBeforeSupport(){
@@ -149,7 +304,7 @@ class CalculatorController extends GetxController{
 
   int loanProfitability(){
     int total = totalAmountGivingToCustomer();
-    double netLoanProfit = (realEstateValue * (period + 1) * (interestRate / 100));
+    double netLoanProfit = (loanAmountRequest * (period + 1) * (interestRate / 100));
     return (total + netLoanProfit).round();
   }
 

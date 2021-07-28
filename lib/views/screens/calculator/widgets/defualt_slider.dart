@@ -12,6 +12,10 @@ class DefaultSlider extends GetView {
   late void Function(double) onChanged;
   late void Function() increase;
   late void Function() decrease;
+  late void Function() longDecrease;
+  late void Function() longIncrease;
+  late void Function() longIncreaseUp;
+  late void Function() longDecreaseUp;
 
   DefaultSlider({
     required this.title,
@@ -20,7 +24,11 @@ class DefaultSlider extends GetView {
     required this.max,
     required this.onChanged,
     required this.increase,
-    required this.decrease
+    required this.decrease,
+    required this.longDecrease,
+    required this.longIncrease,
+    required this.longDecreaseUp,
+    required this.longIncreaseUp,
   });
 
   @override
@@ -56,6 +64,9 @@ class DefaultSlider extends GetView {
                 iconColor: Theme.of(context).iconTheme.color!,
                   icon: FontAwesomeIcons.plus,
                   onPressed: increase,
+                onLongPress: longIncrease,
+                onLongPressUp: longIncreaseUp,
+
               ),
               Expanded(
                 child: Slider(
@@ -72,6 +83,8 @@ class DefaultSlider extends GetView {
                 iconColor: Theme.of(context).iconTheme.color!,
                 icon: FontAwesomeIcons.minus,
                 onPressed: decrease,
+                onLongPress: longDecrease,
+                onLongPressUp: longDecreaseUp,
               ),
             ],
           ),

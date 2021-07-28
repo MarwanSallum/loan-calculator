@@ -40,6 +40,12 @@ class InterestAndPeriodField extends GetView<CalculatorController> {
                       onPressed: (){
                         controller.increaseInterestRate();
                       },
+                      onLongPress: (){
+                        controller.longIncreaseInterestRate();
+                      },
+                      onLongPressUp: (){
+                        controller.longPressedUp();
+                      },
                       icon: FontAwesomeIcons.plus,
                     ),
                     RoundIconButton(
@@ -49,6 +55,12 @@ class InterestAndPeriodField extends GetView<CalculatorController> {
                       iconColor: Theme.of(context).iconTheme.color!,
                       onPressed: (){
                         controller.decreaseInterestRate();
+                      },
+                      onLongPress: (){
+                        controller.longDecreaseInterestRate();
+                      },
+                      onLongPressUp: (){
+                        controller.longPressedUp();
                       },
                       icon: FontAwesomeIcons.minus,
                     ),
@@ -87,6 +99,12 @@ class InterestAndPeriodField extends GetView<CalculatorController> {
                       onPressed: (){
                         controller.increasePeriod();
                       },
+                      onLongPress: (){
+                        controller.longIncreasePeriod();
+                      },
+                      onLongPressUp: (){
+                        controller.longPressedUp();
+                      },
                       icon: FontAwesomeIcons.plus,
                     ),
                     RoundIconButton(
@@ -96,6 +114,12 @@ class InterestAndPeriodField extends GetView<CalculatorController> {
                       iconColor: Theme.of(context).iconTheme.color!,
                       onPressed: (){
                         controller.decreasePeriod();
+                      },
+                      onLongPress: (){
+                        controller.longDecreasePeriod();
+                      },
+                      onLongPressUp: (){
+                        controller.longPressedUp();
                       },
                       icon: FontAwesomeIcons.minus,
                     ),
