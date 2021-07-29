@@ -44,6 +44,7 @@ class WhatsappNumberField extends GetView<CalculatorController> {
               color: MaterialStateProperty.all(Colors.green),
               onPressed: () {
                 controller.sendResultToCustomer();
+                Get.back();
               }),
         ],
       ),

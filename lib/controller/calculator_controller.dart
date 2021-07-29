@@ -42,7 +42,7 @@ class CalculatorController extends GetxController{
         isLongPressed = true;
         salary += 50;
         update();
-        await Future.delayed(Duration(milliseconds: 200));
+        await Future.delayed(Duration(milliseconds: 100));
       } while (salary < 34900 && isLongPressed == true);
     }else{
       isLongPressed = false;
@@ -62,7 +62,7 @@ class CalculatorController extends GetxController{
         isLongPressed = true;
         salary -= 50;
         update();
-        await Future.delayed(Duration(milliseconds: 200));
+        await Future.delayed(Duration(milliseconds: 100));
       } while (salary > 100 && isLongPressed == true);
     }else{
       isLongPressed = false;
@@ -314,6 +314,7 @@ class CalculatorController extends GetxController{
       phoneNumber: "+966${mobileController.text}",
       text:   "*حاسبة تمويل مبدئية*\n"
           "\n"
+          "*الراتب* : ${salary.toString()} \n"
           "*المبلغ المعطى للعميل* : ${totalAmountGivingToCustomer()} \n"
           "*القسط* : ${installmentBeforeSupport()} \n"
           "*القسط بعد الدعم* : ${installmentAfterSupport()} \n"

@@ -48,7 +48,7 @@ class LightTheme {
 
 
     iconTheme: IconThemeData(
-      color: LightColor().accentColor,
+      color: LightColor().thirdColor ,
     ),
 
 

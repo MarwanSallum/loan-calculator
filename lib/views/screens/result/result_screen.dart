@@ -16,7 +16,7 @@ class ResultScreen extends GetView{
             AdvertisingBanner(),
             ResultBody(),
             DefaultButton(title: 'أعد الإحتساب', onPressed: (){
-              Get.back();
+              Navigator.pop(context);
               Get.put(AdmobController());
             }),
             DefaultButton(
