@@ -14,15 +14,16 @@ class WelcomeController extends GetxController{
   bool isLoading = false;
   bool isError = false;
 
+
    var nameValidateInput = MultiValidator([
      RequiredValidator(errorText: "فضلا أدخل الأسم"),
-     LengthRangeValidator(min: 5, max: 50, errorText: 'فضلا أدخل الأسم الثنائي كحد أدنى'),
+     LengthRangeValidator(min: 5, max: 35, errorText: 'فضلا أدخل الأسم الثنائي كحد أدنى أو الرباعي كحد أعلى'),
      PatternValidator("[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufc3f]|[\ufe70-\ufefc]", errorText: 'هذا الحقل يقبل اللغة العربية فقط'),
    ]);
 
   var organizationValidateInput = MultiValidator([
     RequiredValidator(errorText: "فضلا أدخل أسم جهة التمويل التابع لها"),
-    LengthRangeValidator(min: 5, max: 50, errorText: 'هذا الحقل يقبل على الأقل 5 أحرف'),
+    LengthRangeValidator(min: 5, max: 25, errorText: 'هذا الحقل يقبل على الأقل 5 أحرف , بحد أعلى 25 حرف'),
     PatternValidator("[\u0600-\u06ff]|[\u0750-\u077f]|[\ufb50-\ufc3f]|[\ufe70-\ufefc]", errorText: 'هذا الحقل يقبل اللغة العربية فقط'),
   ]);
 

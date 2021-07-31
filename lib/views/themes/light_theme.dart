@@ -71,8 +71,11 @@ class LightTheme {
           borderRadius: BorderRadius.all(Radius.circular(32.0)),
           borderSide: BorderSide(color: LightColor().accentColor)
       ),
-      hintStyle: TextStyle(fontFamily: textFontFamily),
+      filled: true,
+      fillColor: Colors.white,
+      hintStyle: TextStyle(fontFamily: textFontFamily, color: Colors.black45),
       errorStyle: TextStyle(fontFamily: textFontFamily, color: Colors.red, fontWeight: FontWeight.bold, fontSize: Get.width * 0.03),
+      errorMaxLines: 2
     ),
 
 
