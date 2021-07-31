@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class CalculatorPage extends GetPage{
   CalculatorPage({required GetView view}) : super(
-    name: '/',
+    name: '/calculator',
     page: () => view,
     binding: CalculatorBinding(),
   );

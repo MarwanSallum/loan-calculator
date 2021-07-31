@@ -15,16 +15,20 @@ class ResultScreen extends GetView{
           children: [
             AdvertisingBanner(),
             ResultBody(),
-            DefaultButton(title: 'أعد الإحتساب', onPressed: (){
-              Navigator.pop(context);
-              Get.put(AdmobController());
-            }),
-            DefaultButton(
-                title: 'مشاركة عبر الواتساب',
-                color: MaterialStateProperty.all(Colors.green),
-                onPressed: (){
-                  Get.bottomSheet(WhatsappNumberField());
-                },
+            Flexible(
+              child: DefaultButton(title: 'أعد الإحتساب', onPressed: (){
+                Navigator.pop(context);
+                Get.put(AdmobController());
+              }),
+            ),
+            Flexible(
+              child: DefaultButton(
+                  title: 'مشاركة عبر الواتساب',
+                  color: MaterialStateProperty.all(Colors.green),
+                  onPressed: (){
+                    Get.bottomSheet(WhatsappNumberField());
+                  },
+              ),
             ),
           ],
         )

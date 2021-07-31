@@ -7,6 +7,8 @@ class LightTheme {
   static String numberFontFamily = 'Bahnschrift';
 
   static ThemeData data = ThemeData.light().copyWith(
+    primaryColor: LightColor().thirdColor,
+    accentColor: LightColor().primaryColor,
     primaryColorDark: LightColor().primaryColor,
     scaffoldBackgroundColor: LightColor().scaffoldBackgroundColor,
     textTheme: TextTheme(
@@ -34,7 +36,7 @@ class LightTheme {
           fontWeight: FontWeight.bold,
       ),
       headline4: TextStyle(
-          color: DarkColor().accentColor,
+          color: LightColor().accentColor,
           fontFamily: textFontFamily,
           fontSize: Get.width * 0.04,
           fontWeight: FontWeight.bold,
@@ -60,10 +62,17 @@ class LightTheme {
 
 
     inputDecorationTheme: InputDecorationTheme(
-      contentPadding: EdgeInsets.symmetric(vertical: Get.height * 0.02, horizontal: Get.width * 0.20),
+      contentPadding: EdgeInsets.symmetric(vertical: Get.height * 0.02, horizontal: Get.width * 0.10),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(32.0)),
+          borderRadius: BorderRadius.all(Radius.circular(32.0)),
+          borderSide: BorderSide(color: LightColor().accentColor)
       ),
+      focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(32.0)),
+          borderSide: BorderSide(color: LightColor().accentColor)
+      ),
+      hintStyle: TextStyle(fontFamily: textFontFamily),
+      errorStyle: TextStyle(fontFamily: textFontFamily, color: Colors.red, fontWeight: FontWeight.bold, fontSize: Get.width * 0.03),
     ),
 
 

@@ -7,6 +7,8 @@ class DarkTheme {
   static String numberFontFamily = 'Bahnschrift';
 
   static ThemeData data = ThemeData.dark().copyWith(
+    primaryColor: DarkColor().thirdColor,
+    accentColor: DarkColor().accentColor,
     primaryColorDark: DarkColor().primaryColor,
     scaffoldBackgroundColor: DarkColor().scaffoldBackgroundColor,
     textTheme: TextTheme(
@@ -60,10 +62,17 @@ class DarkTheme {
 
 
     inputDecorationTheme: InputDecorationTheme(
-      contentPadding: EdgeInsets.symmetric(vertical: Get.height * 0.02, horizontal: Get.width * 0.20),
+      contentPadding: EdgeInsets.symmetric(vertical: Get.height * 0.02, horizontal: Get.width * 0.10),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(32.0)),
+        borderSide: BorderSide(color: DarkColor().accentColor)
       ),
+      focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(32.0)),
+          borderSide: BorderSide(color: DarkColor().accentColor)
+      ),
+      hintStyle: TextStyle(fontFamily: textFontFamily),
+      errorStyle: TextStyle(fontFamily: textFontFamily, color: Colors.red, fontWeight: FontWeight.bold, fontSize: Get.width * 0.03),
     ),
 
 

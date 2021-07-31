@@ -5,7 +5,7 @@ class LightColor{
   final Color scaffoldBackgroundColor = Color(0xFFF8EDE3);
   final Color primaryColor = Color(0xFF008b9a);
   final Color accentColor = Color(0xFF1b4f5b);
-  final Color thirdColor = Color(0xFFF8EDE3);
+  final Color thirdColor = Color(0xFFDDF490);
 }
 // Dark Theme Colors
 

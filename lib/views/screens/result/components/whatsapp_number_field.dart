@@ -1,5 +1,6 @@
 import 'package:bnkr_pro/controller/calculator_controller.dart';
 import 'package:bnkr_pro/views/components/default_button.dart';
+import 'package:bnkr_pro/views/components/default_text_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,15 +26,11 @@ class WhatsappNumberField extends GetView<CalculatorController> {
             padding: EdgeInsets.symmetric(horizontal: Get.width * 0.10),
             child: Form(
               key: controller.formKey,
-              child: TextFormField(
-                textAlign: TextAlign.center,
-                keyboardType: TextInputType.phone,
+              child: DefaultTextField(
+                hintText: 'أدخل رقم الواتساب',
                 controller: controller.mobileController,
-                decoration: InputDecoration().copyWith(
-                  hintText: 'أدخل رقم الواتساب',
-                  hintStyle: TextStyle(fontFamily: 'ElMessiri'),
-                ),
-              ),
+                textInputType: TextInputType.phone,
+              )
             ),
           ),
           SizedBox(

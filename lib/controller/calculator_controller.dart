@@ -1,3 +1,4 @@
+import 'package:bnkr_pro/services/user_info_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -310,9 +311,10 @@ class CalculatorController extends GetxController{
 
 
  sendResultToCustomer() async{
+    UserInfoService userInfoService = UserInfoService();
     var link = WhatsAppUnilink(
       phoneNumber: "+966${mobileController.text}",
-      text:   "*حاسبة تمويل مبدئية*\n"
+      text:  "*حاسبة تمويل مبدئية*\n"
           "\n"
           "*الراتب* : ${salary.toString()} \n"
           "*المبلغ المعطى للعميل* : ${totalAmountGivingToCustomer()} \n"
@@ -320,9 +322,12 @@ class CalculatorController extends GetxController{
           "*القسط بعد الدعم* : ${installmentAfterSupport()} \n"
           "*هامش الربح* : ${interestRate.toString()} \n"
           "*المدة بالسنوات* : ${period.toString()} \n"
-          "*صافي التمويل* : ${loanProfitability()} \n"
+          "*إجمالي التمويل* : ${loanProfitability()} \n"
           "\n"
-          "_الإحتساب أعلاه هو إحتساب مبدئي كما أن التفاصيل النهائية يتم تحديدها عند إستكمال الطلب ورفعها إلى الإدارة المعنية_",
+          "_الإحتساب أعلاه هو إحتساب مبدئي كما أن التفاصيل النهائية يتم تحديدها عند إستكمال الطلب ورفعها إلى الإدارة المعنية_"
+          "\n"
+          "\n"
+          "*${await userInfoService.showUserName()} - ${await userInfoService.showUserOrganization()}*"
     );
 
     await launch("$link");
