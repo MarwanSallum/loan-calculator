@@ -22,7 +22,7 @@ class ResultRow extends GetView<CalculatorController> {
         children: [
           Text(title, style: Theme.of(context).textTheme.headline6,),
           value == 0
-            ? Text('القسط يتجاوز 65%', style: Theme.of(context).textTheme.headline4,)
+            ? Text('لا يتوافق', style: Theme.of(context).textTheme.headline4,)
             : Text(formatter.format(value), style: Theme.of(context).textTheme.headline5,),
         ],
       ),

@@ -312,24 +312,41 @@ class CalculatorController extends GetxController{
 
  sendResultToCustomer() async{
     UserInfoService userInfoService = UserInfoService();
-    var link = WhatsAppUnilink(
-      phoneNumber: "+966${mobileController.text}",
-      text:  "*حاسبة تمويل مبدئية*\n"
-          "\n"
-          "*الراتب* : ${salary.toString()} \n"
-          "*المبلغ المعطى للعميل* : ${totalAmountGivingToCustomer()} \n"
-          "*القسط* : ${installmentBeforeSupport()} \n"
-          "*القسط بعد الدعم* : ${installmentAfterSupport()} \n"
-          "*هامش الربح* : ${interestRate.toString()} \n"
-          "*المدة بالسنوات* : ${period.toString()} \n"
-          "*إجمالي التمويل* : ${loanProfitability()} \n"
-          "\n"
-          "_الإحتساب أعلاه هو إحتساب مبدئي كما أن التفاصيل النهائية يتم تحديدها عند إستكمال الطلب ورفعها إلى الإدارة المعنية_"
-          "\n"
-          "\n"
-          "*${await userInfoService.showUserName()} - ${await userInfoService.showUserOrganization()}*"
-    );
-
-    await launch("$link");
+    if (installmentBeforeSupport() == 0) {
+      var link = WhatsAppUnilink(
+          phoneNumber: "+966${mobileController.text}",
+          text: "*حاسبة تمويل مبدئية*\n"
+              "\n"
+              "*المبلغ المعطى للعميل* : لا يتوافق وذلك بسبب تجاوز القسط 65% من الراتب \n"
+              "\n"
+              "*الراتب* : ${salary.toString()} \n"
+              "*الإلتزامات الخارجية* : ${obligations.toString()} \n"
+              "*هامش الربح* : ${interestRate.toStringAsFixed(2)} \n"
+              "\n"
+              "_الإحتساب أعلاه هو إحتساب مبدئي كما أن التفاصيل النهائية يتم تحديدها عند إستكمال الطلب ورفعها إلى الإدارة المعنية_"
+              "\n"
+              "\n"
+              "*${await userInfoService.showUserName()} - ${await userInfoService.showUserOrganization()}*");
+      await launch("$link");
+    } else{
+      var link = WhatsAppUnilink(
+          phoneNumber: "+966${mobileController.text}",
+          text: "*حاسبة تمويل مبدئية*\n"
+              "\n"
+              "*المبلغ المعطى للعميل* : ${totalAmountGivingToCustomer()} \n"
+              "*الراتب* : ${salary.toString()} \n"
+              "*القسط* : ${installmentBeforeSupport()} \n"
+              "*الإلتزامات الخارجية* : ${obligations.toString()} \n"
+              "*صافي الراتب بعد الخصم* : ${(salary - (installmentBeforeSupport() + obligations)).toString()} \n"
+              "*هامش الربح* : ${interestRate.toStringAsFixed(2)} \n"
+              "*المدة بالسنوات* : ${period.toString()} \n"
+              "*إجمالي التمويل* : ${loanProfitability()} \n"
+              "\n"
+              "_الإحتساب أعلاه هو إحتساب مبدئي كما أن التفاصيل النهائية يتم تحديدها عند إستكمال الطلب ورفعها إلى الإدارة المعنية_"
+              "\n"
+              "\n"
+              "*${await userInfoService.showUserName()} - ${await userInfoService.showUserOrganization()}*");
+      await launch("$link");
+    }
   }
 }
