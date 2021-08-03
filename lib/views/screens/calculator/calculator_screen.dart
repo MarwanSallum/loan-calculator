@@ -1,5 +1,6 @@
 import 'package:bnkr_pro/controller/admob_controller.dart';
 import 'package:bnkr_pro/controller/calculator_controller.dart';
+import 'package:bnkr_pro/services/admob_service.dart';
 import 'package:bnkr_pro/views/animation/page_transition_animation.dart';
 import 'package:bnkr_pro/views/components/advertising_banner.dart';
 import 'package:bnkr_pro/views/components/default_button.dart';
@@ -21,7 +22,11 @@ class CalculatorScreen extends GetView<CalculatorController> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Expanded(child: AdvertisingBanner()),
+            Expanded(child: AdvertisingBanner(
+              width: AdmobService.createBannerAdForCalculatorScreen().size.width.toDouble(),
+              height: AdmobService.createBannerAdForCalculatorScreen().size.height.toDouble(),
+              ad: AdmobService.createBannerAdForCalculatorScreen()..load(),
+            )),
             Expanded(flex: 2, child: SalaryField()),
             Expanded(flex: 2, child: InterestAndPeriodField()),
             Expanded(flex: 4, child: LoanAmountAndObligationsField()),

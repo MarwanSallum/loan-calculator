@@ -1,4 +1,5 @@
 import 'package:bnkr_pro/controller/admob_controller.dart';
+import 'package:bnkr_pro/services/admob_service.dart';
 import 'package:bnkr_pro/views/components/advertising_banner.dart';
 import 'package:bnkr_pro/views/components/default_button.dart';
 import 'package:bnkr_pro/views/screens/result/components/result_body.dart';
@@ -13,7 +14,11 @@ class ResultScreen extends GetView{
       child: Scaffold(
         body: Column(
           children: [
-            AdvertisingBanner(),
+            AdvertisingBanner(
+              width: AdmobService.createBannerAdForResultScreen().size.width.toDouble(),
+              height: AdmobService.createBannerAdForResultScreen().size.height.toDouble(),
+              ad: AdmobService.createBannerAdForResultScreen()..load(),
+            ),
             ResultBody(),
             Flexible(
               child: DefaultButton(title: 'أعد الإحتساب', onPressed: (){
