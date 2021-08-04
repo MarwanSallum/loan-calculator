@@ -6,11 +6,9 @@ import 'package:get/get.dart';
 
 class WelcomeController extends GetxController{
   final UserInfoService userInfoService = UserInfoService();
-  
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController organizationController = TextEditingController();
-
   bool isLoading = false;
   bool isError = false;
 
@@ -65,6 +63,4 @@ class WelcomeController extends GetxController{
     isError = false;
     update();
   }
-
-
 }

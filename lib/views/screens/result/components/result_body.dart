@@ -24,7 +24,6 @@ class ResultBody extends GetView<CalculatorController> {
                 Expanded(child: ResultRow(title: 'المبلغ المعطى للعميل', value: controller.totalAmountGivingToCustomer().toDouble())),
                 Expanded(child: ResultRow(title: 'الراتب', value: controller.salary.toDouble())),
                 Expanded(child: ResultRow(title: 'القسط', value: controller.installmentBeforeSupport().toDouble())),
-                Expanded(child: ResultRow(title: 'الإلتزامات الخارجية', value: controller.obligations.toDouble())),
                 Expanded(child: ResultRow(title: 'هامش الربح', value: controller.interestRate.toDouble())),
                 Expanded(child: ResultRow(title: 'المدة بالسنوات', value: controller.period.toDouble())),
                 Expanded(child: ResultRow(title: 'إجمالي التمويل', value: controller.loanProfitability().toDouble())),

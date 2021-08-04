@@ -22,25 +22,23 @@ class CalculatorScreen extends GetView<CalculatorController> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Expanded(child: AdvertisingBanner(
+            AdvertisingBanner(
               width: AdmobService.createBannerAdForCalculatorScreen().size.width.toDouble(),
               height: AdmobService.createBannerAdForCalculatorScreen().size.height.toDouble(),
               ad: AdmobService.createBannerAdForCalculatorScreen()..load(),
-            )),
-            Expanded(flex: 2, child: SalaryField()),
-            Expanded(flex: 2, child: InterestAndPeriodField()),
-            Expanded(flex: 4, child: LoanAmountAndObligationsField()),
-            Expanded(
-              child: DefaultButton(
-                  title: 'إحسب',
-                  onPressed: () {
-                    Get.find<AdmobController>().showInterstitialAd();
-                    Navigator.of(context).push(
-                      PageTransitionAnimation(child: ResultScreen()),
-                    );
-                    Get.delete<AdmobController>();
-                  }),
             ),
+            SalaryField(),
+            InterestAndPeriodField(),
+            LoanAmountAndObligationsField(),
+            DefaultButton(
+                title: 'إحسب',
+                onPressed: () {
+                  Get.find<AdmobController>().showInterstitialAd();
+                  Navigator.of(context).push(
+                    PageTransitionAnimation(child: ResultScreen()),
+                  );
+                  Get.delete<AdmobController>();
+                }),
           ],
         ),
       ),
